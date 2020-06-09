@@ -30,7 +30,7 @@ namespace PorxectoPráctica2._2
             }
 
             app.UseRouting();
-
+            app.UseCalculator("/calc");
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGet("/", async context =>

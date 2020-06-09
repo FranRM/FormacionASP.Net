@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using PorxectoPráctica2._2.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,7 +13,7 @@ namespace PorxectoPráctica2._2
         private readonly RequestDelegate _next;
         private readonly ICalculatorServices _calculatorServices;
 
-        public CalculatorMiddleware(string basePath,
+        public CalculatorMiddleWare(string basePath,
                                     RequestDelegate next,
                                     ICalculatorServices calculatorServices)
         {
@@ -42,6 +44,61 @@ namespace PorxectoPráctica2._2
                 }
             }
             else await _next(context);
+        }
+        private async Task SendHtmlPage(HttpContext context, string title, string body)
+        {
+            var content = $@"
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset='utf-8' />
+            <title>{title} - Calculator</title>
+            <link href='/styles/calculator.css' rel='stylesheet' />
+        </head>
+        <body>
+            <h1>
+                <img src='/images/calculator.png' />
+                Simple calculator
+            </h1>
+            {body}
+        </body>
+        </html>
+    ";
+            context.Response.Clear();
+            context.Response.ContentType = "text/html";
+            await context.Response.WriteAsync(content);
+        }
+        private async Task SendCalculatorHomePage(HttpContext context)
+        {
+            await SendHtmlPage(
+                context,
+                "Start",
+                $@" <form method='post' action='{_basePath}/results'>
+                <input type='number' name='a'>
+                <select name='operation'>
+                    <option value='+'>+</option>
+                    <option value='-'>-</option>
+                    <option value='*'>*</option>
+                    <option value='/'>/</option>
+                </select>
+                <input type='number' name='b'>
+                <input type='submit' value='Calculate'>
+            </form>
+        ");
+        }
+        private async Task SendCalculationResults(HttpContext context)
+        {
+            int a = int.Parse(context.Request.Form["a"]);
+            int b = int.Parse(context.Request.Form["b"]);
+            string operation = context.Request.Form["operation"];
+
+            var result = _calculatorServices.Calculate(a, b, operation);
+            await SendHtmlPage(
+                context,
+                "Results",
+                $@"<h2>{a}{operation}{b}={result}</h2>
+            <p><a href='{_basePath}'>Back</a></p>"
+            );
         }
     }
 }
