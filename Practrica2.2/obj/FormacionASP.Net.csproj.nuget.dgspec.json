@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\FRAN\\Documents\\RepoASPNET Instruccion\\FormacionASP.Net\\FormacionASP.Net.csproj": {}
+    "C:\\Users\\FRAN\\Documents\\RepoASPNET Instruccion\\FormacionASP.Net\\Practrica2.2\\FormacionASP.Net.csproj": {}
   },
   "projects": {
-    "C:\\Users\\FRAN\\Documents\\RepoASPNET Instruccion\\FormacionASP.Net\\FormacionASP.Net.csproj": {
+    "C:\\Users\\FRAN\\Documents\\RepoASPNET Instruccion\\FormacionASP.Net\\Practrica2.2\\FormacionASP.Net.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\FRAN\\Documents\\RepoASPNET Instruccion\\FormacionASP.Net\\FormacionASP.Net.csproj",
+        "projectUniqueName": "C:\\Users\\FRAN\\Documents\\RepoASPNET Instruccion\\FormacionASP.Net\\Practrica2.2\\FormacionASP.Net.csproj",
         "projectName": "FormacionASP.Net",
-        "projectPath": "C:\\Users\\FRAN\\Documents\\RepoASPNET Instruccion\\FormacionASP.Net\\FormacionASP.Net.csproj",
+        "projectPath": "C:\\Users\\FRAN\\Documents\\RepoASPNET Instruccion\\FormacionASP.Net\\Practrica2.2\\FormacionASP.Net.csproj",
         "packagesPath": "C:\\Users\\FRAN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\FRAN\\Documents\\RepoASPNET Instruccion\\FormacionASP.Net\\obj\\",
+        "outputPath": "C:\\Users\\FRAN\\Documents\\RepoASPNET Instruccion\\FormacionASP.Net\\Practrica2.2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
