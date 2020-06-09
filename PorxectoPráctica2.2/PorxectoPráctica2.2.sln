@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PorxectoPráctica2.2", "PorxectoPráctica2.2.csproj", "{58A27629-349D-4F72-91C2-65E896F88AAE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{58A27629-349D-4F72-91C2-65E896F88AAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58A27629-349D-4F72-91C2-65E896F88AAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58A27629-349D-4F72-91C2-65E896F88AAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58A27629-349D-4F72-91C2-65E896F88AAE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C78A93E0-716C-4D4A-A3C3-6069F251068F}
+	EndGlobalSection
+EndGlobal

@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace FormacionASP.Net
+namespace PorxectoPráctica2._2
 {
     public class Program
     {

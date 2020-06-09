@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace FormacionASP.Net
+namespace PorxectoPráctica2._2
 {
     public class Startup
     {
