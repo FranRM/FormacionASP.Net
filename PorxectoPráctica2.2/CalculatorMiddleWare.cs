@@ -13,10 +13,7 @@ namespace PorxectoPráctica2._2
         private readonly RequestDelegate _next;
         private readonly ICalculatorServices _calculatorServices;
 
-        public CalculatorMiddleWare(string basePath,
-                                    RequestDelegate next,
-                                    ICalculatorServices calculatorServices)
-        {
+        public CalculatorMiddleWare(string basePath, RequestDelegate next, ICalculatorServices calculatorServices) {
             _basePath = basePath;
             _next = next;
             _calculatorServices = calculatorServices;

@@ -30,7 +30,10 @@ namespace PorxectoPráctica2._2
             }
 
             app.UseRouting();
+            app.UseStatusCodePagesWithReExecute("/error/show/{0}");
+            app.UseExceptionHandler("/error/show/500");
             app.UseCalculator("/calc");
+            app.UseCustomErrorPages();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGet("/", async context =>
