@@ -6,26 +6,24 @@ namespace ProxectoPractica2._3.Services {
 public class CalculatorServices : ICalculatorServices
 {
     private readonly ICalculatorEngine _CalculatorEngine;
-    private readonly ILogger<CalculatorMiddleWare> _calclogger;
 
-        public CalculatorServices(ICalculatorEngine CalculatorEngine, ILogger<CalculatorMiddleWare> calclogger)
+        public CalculatorServices(ICalculatorEngine CalculatorEngine)
     {
         _CalculatorEngine = CalculatorEngine;
-            _calclogger = calclogger;
     }
 
     public int Calculate(int a, int b, string operation)
     {
-            _calclogger.LogDebug($"Realizando o calculo: {a}{operation}{b}");
+            
             switch (operation)
         {
-            case "+":
+            case "add":
                 return _CalculatorEngine.Add(a, b);
-            case "-":
+            case "sub":
                 return _CalculatorEngine.Substract(a, b);
-            case "*":
+            case "mul":
                 return _CalculatorEngine.Multiply(a, b);
-            case "/":
+            case "div":
                 return _CalculatorEngine.Divide(a, b);
             default:
                 var message = $"Operation '{operation}' not supported";
