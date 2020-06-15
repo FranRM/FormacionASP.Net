@@ -33,6 +33,10 @@ namespace ProxectoPractica2._3
         {
             services.AddTransient<ICalculatorServices, CalculatorServices>();
             services.AddTransient<ICalculatorEngine, CalculatorEngine>();
+            services.AddRouting( options=> {
+                options.ConstraintMap.Add("operadorValido", typeof(ValidOperationConstraint));
+                options.ConstraintMap.Add("divisorValido", typeof(ValidDivisionConstraint));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,7 +50,7 @@ namespace ProxectoPractica2._3
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapCalculator("/calculator/{operation:}/{a}/{b}");
+                endpoints.MapCalculator("/calculator/{operation:operadorValido}/{a:int}/{b:divisorValido}");
             });
         }
     }
