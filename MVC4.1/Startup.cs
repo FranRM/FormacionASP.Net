@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MVC4._1.Models;
 
 namespace MVC4._1
 {
@@ -24,6 +25,7 @@ namespace MVC4._1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddScoped<IBlogServices, BlogServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -32,6 +34,7 @@ namespace MVC4._1
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                
             }
             else
             {
@@ -49,8 +52,14 @@ namespace MVC4._1
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "archive",
+                    pattern: "blog/archive/{year}/{month}",
+                    defaults: new { controller = "Blog", action = "Archive" }
+                );
+
+                endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "test/{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
