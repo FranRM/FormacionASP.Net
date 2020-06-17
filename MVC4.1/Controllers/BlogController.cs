@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace MVC4._1.Controllers
 {
-    public class BlogController: Controller
+    public class BlogController : Controller
     {
         private readonly IBlogServices _blogServices;
-        public BlogController(IBlogServices blogServices) {
+        public BlogController(IBlogServices blogServices)
+        {
             _blogServices = blogServices;
         }
         public IActionResult Index()
@@ -22,6 +23,15 @@ namespace MVC4._1.Controllers
         {
             var posts = _blogServices.GetPostsByDate(year, month);
             return View(posts);
+        }
+        [Route("blog/{slug}")]
+        public IActionResult ViewPost(string slug)
+        {
+            var posts = _blogServices.GetPost(slug);
+            if (posts == null)
+                return NotFound();
+            else
+                return View(posts);
         }
     }
 }

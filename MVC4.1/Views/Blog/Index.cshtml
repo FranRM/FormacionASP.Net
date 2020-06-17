@@ -1,0 +1,23 @@
+﻿@model IEnumerable<MVC4._1.Models.Post>
+@{
+    ViewData["Title"] = "Latest Posts";
+}
+
+<h2>@ViewData["Title"]</h2>
+<ul>
+    @foreach (var post in Model)
+    {
+    <li>
+        <h3>@post.Title</h3>
+        <div>
+            Posted by @post.Author on @post.Date.ToString("d")
+        </div>
+        <a asp-controller="blog" asp-action="viewpost" asp-route-slug="@post.Slug">Read post...</a>
+        @if (post.Comments.Any())
+        {
+            <div>@post.Comments.Count() comments</div>
+        }
+    </li>
+
+    }
+</ul>

@@ -38,6 +38,19 @@ namespace MVC4._1.Models
                     }
                 );
             }
+            var rnd = new Random();
+            foreach (var post in Posts)
+            {
+                for (int i = 0; i < rnd.Next(4); i++)
+                {
+                    post.Comments.Add(new Comment()
+                    {
+                        Author = $"user{rnd.Next(1000)}",
+                        Date = post.Date.AddDays(rnd.Next(0, 100)),
+                        Text = $"Hello, your post {post.Title} looks great!"
+                    });
+                }
+            }
         }
 
         // Miembros de IBlogServices:
@@ -46,7 +59,7 @@ namespace MVC4._1.Models
             var posts = from post in Posts
                         orderby post.Date descending
                         select post;
-            return posts.Take(max).ToList();
+            return posts.OrderByDescending(x=>x.Date).Take(max).ToList();
         }
 
         public IEnumerable<Post> GetPostsByDate(int year, int month)
@@ -61,7 +74,7 @@ namespace MVC4._1.Models
         public Post GetPost(string slug)
         {
             return Posts.FirstOrDefault(
-                post => post.Slug.Equals(slug, StringComparison.OrdinalIgnoreCase)
+                post => post.Slug.Equals(slug, StringComparison.CurrentCultureIgnoreCase)
             );
         }
     }

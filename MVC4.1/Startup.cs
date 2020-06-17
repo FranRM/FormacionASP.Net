@@ -56,10 +56,10 @@ namespace MVC4._1
                     pattern: "blog/archive/{year}/{month}",
                     defaults: new { controller = "Blog", action = "Archive" }
                 );
-
+                //Ruta por defecto
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "test/{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
