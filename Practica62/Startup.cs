@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,7 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Practica61
+namespace Practica62
 {
     public class Startup
     {
@@ -50,38 +49,8 @@ namespace Practica61
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                    name: "view",
-                    pattern: "friends/view/{name}",
-                    defaults: new { controller = "Friends", action = "View"});
-
-                endpoints.MapControllerRoute(
-                    name: "edit",
-                    pattern: "friends/edit/{id}",
-                    defaults: new { controller = "Friends", action = "Edit" });
-
-                endpoints.MapControllerRoute(
-                    name: "delete",
-                    pattern: "delete/friends/{id}",
-                    defaults: new { controller = "Friends", action = "Delete" });
-                endpoints.MapControllerRoute(
-                    name: "all",
-                    pattern: "products/all",
-                    defaults: new { controller = "Products", action = "Index" });
-
-                endpoints.MapControllerRoute(
-                    name: "viewP",
-                    pattern: "products/{id}",
-                    defaults: new { controller = "Products", action = "View" });
-
-                endpoints.MapControllerRoute(
-                    name: "category",
-                    pattern: "products/category/{category}",
-                    defaults: new { controller = "Products", action = "ByCategory" });
-
-                endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "/",
-                    defaults: new { controller = "Products", action = "Index" });
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
