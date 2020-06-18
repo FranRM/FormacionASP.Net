@@ -1,0 +1,32 @@
+@namespace Practica63
+@model Practica63.Models.Friend
+
+@if (ViewData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @ViewData["ErrorMessage"]
+    </div>
+}
+<form method="post" action="/friend/create">
+    <label>
+        Name:@if (ViewData["ErrorName"] != null)
+        {
+    <div class="alert alert-danger">
+        @ViewData["ErrorName"]
+    </div>}
+    </label> <input type="text" name="name" value="@Model.Name" /><br />
+    
+<label>
+    Age:@if (ViewData["ErrorAge"] != null)
+    {
+<div class="alert alert-danger">
+    @ViewData["ErrorAge"]
+</div>}
+</label>  <input type="number" name="age" value="@Model.Age" /><br />
+    
+    <label>Email:</label>  <input type="text" name="email" value="@Model.Email" /><br
+    <label>Street:</label>  <input type="text" name="address.street" value="@Model.Address.Street" /><br />
+    <label>City:</label>  <input type="text" name="address.city" value="@Model.Address.City" /><br />
+    <label>ZipCode:</label>  <input type="text" name="address.zipcode" value="@Model.Address.ZipCode" /><br />
+    <input type="submit" value="Submit">
+</form>
